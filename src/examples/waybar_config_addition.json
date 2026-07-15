@@ -1,0 +1,15 @@
+"custom/powerprofile": {
+    "exec": "~/.config/waybar/scripts/powerprofile.sh",
+    "interval": 30,
+    "format": "{}",
+    "menu": "on-click",
+    "menu-file": "USER_HOME/.config/waybar/power_profile_menu.xml",
+    "menu-actions": {
+        "balanced": "USER_HOME/.config/hypr/scripts/set_power_profile.sh balanced",
+        "performance": "USER_HOME/.config/hypr/scripts/set_power_profile.sh performance",
+        "power-saver": "USER_HOME/.config/hypr/scripts/set_power_profile.sh power-saver"
+    },
+    "signal": 8,
+    "return-type": "json",
+    "tooltip": true
+}
