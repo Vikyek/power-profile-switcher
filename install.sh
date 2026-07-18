@@ -69,7 +69,11 @@ if os.path.exists(waybar_config_path):
     print("  Reading Waybar config...")
     try:
         with open(waybar_config_path, 'r') as f:
-            data = json.load(f)
+            content = f.read()
+        import re
+        clean = re.sub(r"(\"(?:\\.|[^\"\\\\])*\")|//.*$", lambda m: m.group(1) if m.group(1) else "", content, flags=re.MULTILINE)
+        clean = re.sub(r",(\s*[}\]])", r"\1", clean)
+        data = json.loads(clean)
         
         # Add custom/powerprofile to modules-right if not present
         modules_right = data.get("modules-right", [])
@@ -102,7 +106,7 @@ if os.path.exists(waybar_config_path):
         }
         
         with open(waybar_config_path, 'w') as f:
-            json.dump(data, f, indent=4)
+            json.dump(data, f, indent=4, ensure_ascii=False)
         print("  Waybar module configuration successfully integrated.")
     except Exception as e:
         print(f"  Warning: Failed to automatically edit Waybar config: {e}")

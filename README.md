@@ -3,6 +3,7 @@
 A native, lightweight GTK-based dropdown menu and keyboard shortcut daemon for switching power profiles (Performance, Balanced, Power Saver) in a Waybar + Hyprland setup.
 
 ## Features
+
 * ⚡ **GTK Dropdown Menu**: Left-clicking the status bar module displays a native GTK popup menu next to your status bar.
 * ⌨️ **Keyboard Shortcut (`SUPER + Y`)**: Cycle through profiles instantly using your keyboard.
 * 🔋 **Status Indicators**: Dynamically updates the status bar icon (`⚡` / `⚖️` / `🔋`) and shows active mode in the tooltip upon hover.
@@ -12,7 +13,9 @@ A native, lightweight GTK-based dropdown menu and keyboard shortcut daemon for s
 ---
 
 ## Dependencies
+
 This utility relies on the following components:
+
 * **`power-profiles-daemon`** (provides `powerprofilesctl` for CPU governor power management)
 * **`waybar`** (the status bar panel)
 * **`libnotify`** (provides `notify-send` for displaying OSD indicators)
@@ -23,11 +26,13 @@ This utility relies on the following components:
 ## Installation
 
 1. **Clone or Navigate to the Repository Directory**:
+   
    ```bash
    cd ~/power-profile-switcher
    ```
 
 2. **Run the Installer**:
+   
    ```bash
    ./install.sh
    ```
@@ -41,14 +46,18 @@ The script will automatically check for all dependencies, copy files to their re
 If the installer skipped your configuration files or if you want to set things up manually, follow these steps:
 
 ### 1. File Placements
+
 Ensure files are placed in these locations and made executable:
+
 * Waybar script: `~/.config/waybar/scripts/powerprofile.sh`
 * GTK menu definition: `~/.config/waybar/power_profile_menu.xml`
 * Switch script: `~/.config/hypr/scripts/set_power_profile.sh`
 * Cycle script: `~/.config/hypr/scripts/toggle_power_profile.sh`
 
 ### 2. Waybar Configuration (`~/.config/waybar/config`)
+
 Add `custom/powerprofile` to your list of modules (e.g. inside `modules-right`):
+
 ```json
 "modules-right": [
     ...
@@ -60,6 +69,7 @@ Add `custom/powerprofile` to your list of modules (e.g. inside `modules-right`):
 ```
 
 Define the custom module settings:
+
 ```json
 "custom/powerprofile": {
     "exec": "~/.config/waybar/scripts/powerprofile.sh",
@@ -77,10 +87,13 @@ Define the custom module settings:
     "tooltip": true
 }
 ```
+
 *(Replace `YOUR_USERNAME` with your actual username, as Waybar requires absolute paths for native GTK menus.)*
 
 ### 3. Waybar Styling (`~/.config/waybar/style.css`)
+
 Append the styling to the end of your stylesheet:
+
 ```css
 #custom-powerprofile {
     color: #88c0d0; /* Frost Cyan */
@@ -88,7 +101,9 @@ Append the styling to the end of your stylesheet:
 ```
 
 ### 4. Hyprland Keybind (`~/.config/hypr/hyprland.conf`)
+
 Add a bind directive under your bindings section:
+
 ```ini
 bind = SUPER, Y, exec, ~/.config/hypr/scripts/toggle_power_profile.sh
 ```
