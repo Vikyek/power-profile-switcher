@@ -63,7 +63,7 @@ echo -e "${GREEN}Scripts successfully copied and marked executable.${NC}"
 echo -e "\nIntegrating configurations..."
 
 # We use Python to parse and update the Waybar config safely
-python3 - <<EOF
+python3 - <<'EOF'
 import json
 import os
 
