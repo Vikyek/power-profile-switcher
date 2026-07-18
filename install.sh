@@ -106,7 +106,7 @@ if os.path.exists(waybar_config_path):
             },
             "signal": 8,
             "return-type": "json",
-            "tooltip": true
+            "tooltip": True
         }
         
         with open(waybar_config_path, 'w') as f:
