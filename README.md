@@ -25,10 +25,11 @@ This utility relies on the following components:
 
 ## Installation
 
-1. **Clone or Navigate to the Repository Directory**:
+1. **Clone and Navigate to the Repository Directory**:
    
    ```bash
-   cd ~/power-profile-switcher
+   git clone https://github.com/Vikyek/power-profile-switcher.git
+   cd power-profile-switcher
    ```
 
 2. **Run the Installer**:
