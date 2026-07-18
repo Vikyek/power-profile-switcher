@@ -3,6 +3,10 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
+# Change directory to the script's actual directory to support execution from other folders
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
 # Define color codes for formatting
 RED='\033[0;31m'
 GREEN='\033[0;32m'
